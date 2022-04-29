@@ -58,7 +58,7 @@ def main():
     parser.add_argument('-h1', '--hidden1', type=int, default=1024, help='hidden1 nodes (default: 1024)')
     parser.add_argument('-h2', '--hidden2', type=int, default=128, help='hidden2 nodes (default: 128)')
     parser.add_argument('-dr', '--drop-rate', type=float, default=0.5, help='drop-out rate (default: 0.5)')
-    parser.add_argument('-s', '--seed', type=int, default=102, help='random seed (default: 102)')
+    parser.add_argument('-s', '--seed', type=int, default=0, help='random seed (default: 0)')
     parser.add_argument('--teacher', default=None, help='teacher [ST, MT] (default: None)')
     parser.add_argument('--patience', type=int, default=5, help='patience (default: 5)')
     
@@ -108,7 +108,6 @@ def main():
     print_and_log("===== start =====")
     print_and_log(f'epochs: {args.epochs} | batch-size: {args.batch_size} | learning-rate: {args.learning_rate}')
     print_and_log(f'hidden1: {args.hidden1} | hidden2: {args.hidden2} | drop-rate: {args.drop_rate}')
-    print_and_log(f'temperature: {args.temperature} | alpha: {args.alpha}') # <------------- for KD
     print_and_log(f'result dir: {resdir}')
 
     # load common data   

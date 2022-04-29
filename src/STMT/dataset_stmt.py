@@ -170,7 +170,6 @@ class SingleTaskDataset(td.Dataset):
         self.labels = labels
         self.tidx = tidx
         self.mode = mode
-        self.add_unk = False
         
         #### using teacher in training ####
         if not teacher_path is None:
@@ -195,9 +194,7 @@ class SingleTaskDataset(td.Dataset):
         self.num_neg = len(self.neg_indices)
         self.num_use = len(self.using_indices)
 
-
         if mode == 'train':
-            
             if self.teacher_logits is not None:
                 assert len(self.using_indices) == len(teacher_logits), \
                 f"using_indicies {len(self.using_indices)} != teacher_logits {len(teacher_logits)}"

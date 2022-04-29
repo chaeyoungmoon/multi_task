@@ -401,11 +401,6 @@ class Trainer():
             task_train_dataset = train_loaders[0].dataset.taskidx2dataset[tidx].dataset
             if teacher:
                 task_teacher_dataset = teacher_loaders[tidx].dataset.dataset
-            if task_train_dataset.add_unk == True:
-                sampled_train_negs = task_train_dataset.neg_indices
-                if teacher:
-                    sampled_teach_negs = task_teacher_dataset.neg_indices
-                self.save_neg_inds(tidx, sampled_train_negs, sampled_teach_negs)
             
 
     def calculate_auc(self, logits, labels):
